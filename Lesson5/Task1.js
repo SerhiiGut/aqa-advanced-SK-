@@ -1,7 +1,7 @@
-const Score = (Math.random()*100).toFixed(0)
-console.log(Score)
+const score = (Math.random()*100).toFixed(0)
+console.log(score)
 
-if (Score >= 90) {
+if (score >= 90) {
     console.log("Відмінно");
 } else if (Score >= 80) {
     console.log("Дуже добре");
