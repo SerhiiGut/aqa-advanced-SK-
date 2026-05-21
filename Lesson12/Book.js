@@ -34,9 +34,10 @@ class Book {
     }
 
     set year(value) {
+
         if (
             typeof value !== "number" ||
-            value <= 0
+            value <= 0 
         ) {
             throw new Error("тут має бути рік");
         }
@@ -44,18 +45,28 @@ class Book {
         this._year = value;
     }
 
-    printInfo() {
-        console.log(`
+printInfo() {
+    console.log(`
 Назва: ${this.title}
 Автор: ${this.author}
 Рік видання: ${this.year}`);
-    }
-
-    static getOldestBook(books) {
-        return books.reduce((oldest, current) =>
-            current.year < oldest.year ? current : oldest
-        );
-    }
+}
 }
 
-export default Book;
+const book1 = new Book(
+    "Title1",
+    "Author1",
+    2026
+);
+
+const book2 = new Book(
+    "Title2",
+    "Author2",
+    2027
+);
+
+
+book1.printInfo();
+book2.printInfo();
+
+export default Book
