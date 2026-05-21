@@ -1,5 +1,7 @@
 import Book from "./Book.js";
 
+
+
 class EBook extends Book {
     constructor(title, author, year, fileFormat) {
         super(title, author, year);
@@ -34,32 +36,20 @@ class EBook extends Book {
             value.toUpperCase();
     }
 
-    printInfo() {
-        console.log(`
+printInfo() {
+console.log(`
 Назва: ${this.title}
 Автор: ${this.author}
 Рік видання: ${this.year}
 Формат файлу: ${this.fileFormat}`);
     }
-
-    // Завдання 5
-    static createEBook(book, format) {
-        return new EBook(
-            book.title,
-            book.author,
-            book.year,
-            format
-        );
-    }
 }
-
 const ebook = new EBook(
     "Ebook1",
     "Ebook Author",
     2026,
     "PDF"
-);
+)
+ebook.printInfo()
 
-ebook.printInfo();
-
-export default EBook;
+export default EBook
