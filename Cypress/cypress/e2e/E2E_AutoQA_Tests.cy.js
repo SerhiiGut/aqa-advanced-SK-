@@ -8,7 +8,7 @@ describe('Landing Page', () => {
   ];
 
   beforeEach(() => {
-    cy.login();
+    cy.SkipModal();
     //contactsBtn для того щоб сайпрес спустився до потрібного блоку
     cy.contains('button', 'Contacts').as('contactsBtn');
   });
