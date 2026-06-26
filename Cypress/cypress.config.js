@@ -3,9 +3,14 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   allowCypressEnv: false,
 
+  reporter: "mochawesome",
 
-e2e: {
-  baseUrl: "https://qauto.forstudy.space/",
-},
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: true,
+    json: true
   },
-);
+
+  e2e: {}
+});
