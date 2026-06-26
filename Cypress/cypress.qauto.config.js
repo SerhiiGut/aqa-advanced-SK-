@@ -1,23 +1,15 @@
-const { defineConfig } = require("cypress");
+const baseConfig = require("./cypress.config");
 
-module.exports = defineConfig({
-
-  reporter: "mochawesome",
-
-  reporterOptions: {
-    reportDir: "cypress/reports/qauto",
-    overwrite: false,
-    html: true,
-    json: true
-  },
+module.exports = {
+  ...baseConfig,
 
   e2e: {
-    baseUrl: "https://qauto.forstudy.space/",
+    ...baseConfig.e2e,
+    baseUrl: "https://qauto.forstudy.space/"
   },
 
   env: {
     email: "ss.allarma+1@gmail.com",
     password: "123123Ss"
   }
-
-});
+};

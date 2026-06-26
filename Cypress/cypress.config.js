@@ -12,7 +12,5 @@ module.exports = defineConfig({
     json: true
   },
 
-  e2e: {
-    baseUrl: "https://qauto.forstudy.space/",
-  },
+  e2e: {}
 });
