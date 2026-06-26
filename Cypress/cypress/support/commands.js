@@ -19,6 +19,8 @@ Cypress.Commands.add('openRegistrationForm', () => {
 
 Cypress.Commands.add('login', (email, password) => {
 
+  cy.SkipModal()
+
   cy.get('.header_signin').click()
 
   cy.get('#signinEmail')
