@@ -7,12 +7,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "cy:open:qauto": "cypress open --config-file cypress.qauto.config.js",
-  "cy:open:qauto2": "cypress open --config-file cypress.qauto2.config.js",
-  "cy:run:qauto": "cypress run --config-file cypress.qauto.config.js",
-  "cy:run:qauto2": "cypress run --config-file cypress.qauto2.config.js"
-},
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open:qauto": "cypress open --config-file cypress.qauto.config.js",
+    "cy:open:qauto2": "cypress open --config-file cypress.qauto2.config.js",
+    "cy:run:qauto": "cypress run --config-file cypress.qauto.config.js",
+    "cy:run:qauto2": "cypress run --config-file cypress.qauto2.config.js"
+  },
   "devDependencies": {
     "cypress": "^15.17.0",
     "cypress-xpath": "^2.0.1",
@@ -20,6 +20,7 @@
     "eslint-plugin-cypress": "^6.4.1",
     "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.1.1",
-    "mochawesome-report-generator": "^6.3.2"
+    "mochawesome-report-generator": "^6.3.2",
+    "prettier": "^3.9.1"
   }
 }
