@@ -4,10 +4,6 @@ const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
 
-  // -----------------------
-  // Загальні налаштування
-  // -----------------------
-
   testDir: './tests',
 
   timeout: 60 * 1000,
@@ -31,13 +27,14 @@ module.exports = defineConfig({
     ['html', { open: 'never' }],
   ],
 
-  // -----------------------
-  // Налаштування браузера
-  // -----------------------
-
   use: {
 
-    baseURL: process.env.BASE_URL || 'https://example.com',
+    baseURL: process.env.BASE_URL || 'https://qauto.forstudy.space',
+
+    httpCredentials: {
+      username: 'guest',
+      password: 'welcome2qauto',
+    },
 
     headless: process.env.CI ? true : false,
 
@@ -65,59 +62,13 @@ module.exports = defineConfig({
     timezoneId: 'Europe/Kyiv',
   },
 
-  // -----------------------
-  // Браузери
-  // -----------------------
-
   projects: [
-
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
       },
     },
-
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-
-    // Microsoft Edge
-    // {
-    //   name: 'edge',
-    //   use: {
-    //     ...devices['Desktop Edge'],
-    //     channel: 'msedge',
-    //   },
-    // },
-
-    // Google Chrome
-    // {
-    //   name: 'chrome',
-    //   use: {
-    //     ...devices['Desktop Chrome'],
-    //     channel: 'chrome',
-    //   },
-    // },
   ],
 
-  // -----------------------
-  // Локальний сервер
-  // -----------------------
-
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
