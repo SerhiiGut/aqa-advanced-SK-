@@ -4,8 +4,8 @@ Cypress.Commands.add('SkipModal', () => {
       username: 'guest',
       password: 'welcome2qauto'
     }
-  });
-});
+  })
+})
 
 Cypress.Commands.add('checkInvalidField', (selector) => {
   cy.get(selector)
@@ -34,7 +34,40 @@ Cypress.Commands.add('login', (email, password) => {
 
 })
 
+Cypress.Commands.add('createExpense', (
+  carId,
+  mileage,
+  liters,
+  totalCost
+) => {
+
+  cy.request({
+    method: 'POST',
+    url: '/api/expenses',
+    body: {
+      carId,
+      reportedAt: '2026-06-28',
+      mileage: Number(mileage),
+      liters: Number(liters),
+      totalCost: Number(totalCost)
+    }
+  }).then(({ status, body }) => {
+
+    expect(status).to.eq(200)
+
+    expect(body.status).to.eq('ok')
+
+    expect(body.data.carId).to.eq(carId)
+    expect(body.data.mileage).to.eq(Number(mileage))
+    expect(body.data.liters).to.eq(Number(liters))
+    expect(body.data.totalCost).to.eq(Number(totalCost))
+
+  })
+
+})
+
 Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
+
   if (options && options.sensitive) {
     options.log = false
 
@@ -46,4 +79,5 @@ Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
   }
 
   return originalFn(element, text, options)
+
 })
